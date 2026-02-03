@@ -8,7 +8,13 @@ from email.mime.multipart import MIMEMultipart
 
 # ---------------- SETTINGS ----------------
 
-ASSET_TICKER = "GC=F"  # Gold futures
+ASSETS = {
+    "Gold": "GC=F",
+    "Silver": "SI=F",
+    "Bitcoin": "BTC-USD",
+    "Ethereum": "ETH-USD"
+}
+
 VOLUME_MULTIPLIER = 2.0
 LOOKBACK_DAYS = 20
 
@@ -24,8 +30,19 @@ def is_event_today():
     today_events = events[events["date"] == today]
     return today_events["event"].tolist()
 
-def volume_spike():
-    data = yf.download(ASSET_TICKER, period="2mo", progress=False)
+def volume_spike(ticker):
+    data = yf.download(ticker, period="2mo", progress=False)
+    if len(data) < LOOKBACK_DAYS:
+        return False, None
+
+    recent_avg = data["Volume"].tail(LOOKBACK_DAYS).mean().item()
+    today_volume = data["Volume"].iloc[-1].item()
+
+    if today_volume >= VOLUME_MULTIPLIER * recent_avg:
+        return True, today_volume
+
+    return False, today_volume
+    
     if len(data) < LOOKBACK_DAYS:
         return False, None
 
@@ -70,9 +87,23 @@ This is an informational notice only and does not constitute financial advice.
         server.send_message(msg)
 
 def main():
+    def main():
     events_today = is_event_today()
     if not events_today:
         return
+
+    for asset_name, ticker in ASSETS.items():
+        spike, volume = volume_spike(ticker)
+
+        if not spike:
+            continue
+
+        for event in events_today:
+            alert_key = f"{event}-{asset_name}"
+
+            if not already_alerted(alert_key):
+                send_email(f"{event} ({asset_name})", volume)
+                log_alert(alert_key)
 
     spike, volume = volume_spike()
     if not spike:
@@ -92,6 +123,7 @@ if __name__ == "__main__":
         print("ERROR OCCURRED:")
         print(e)
         raise
+
 
 
 
