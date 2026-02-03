@@ -1,1 +1,87 @@
-print("Silent alert system is ready.")
+import yfinance as yf
+import pandas as pd
+import datetime
+import smtplib
+import os
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+# ---------------- SETTINGS ----------------
+
+ASSET_TICKER = "GC=F"  # Gold futures
+VOLUME_MULTIPLIER = 2.0
+LOOKBACK_DAYS = 20
+
+EMAIL_ADDRESS = os.environ["EMAIL_ADDRESS"]
+EMAIL_PASSWORD = os.environ["EMAIL_PASSWORD"]
+RECEIVER_EMAIL = os.environ["RECEIVER_EMAIL"]
+
+# ------------------------------------------
+
+def is_event_today():
+    today = datetime.date.today().isoformat()
+    events = pd.read_csv("events.csv")
+    today_events = events[events["date"] == today]
+    return today_events["event"].tolist()
+
+def volume_spike():
+    data = yf.download(ASSET_TICKER, period="2mo", progress=False)
+    if len(data) < LOOKBACK_DAYS:
+        return False, None
+
+    recent_avg = data["Volume"][-LOOKBACK_DAYS:].mean()
+    today_volume = data["Volume"].iloc[-1]
+
+    if today_volume >= VOLUME_MULTIPLIER * recent_avg:
+        return True, today_volume
+    return False, today_volume
+
+def already_alerted(event):
+    try:
+        with open("alert_log.txt", "r") as f:
+            return event in f.read()
+    except:
+        return False
+
+def log_alert(event):
+    with open("alert_log.txt", "a") as f:
+        f.write(event + "\n")
+
+def send_email(event, volume):
+    msg = MIMEMultipart()
+    msg["From"] = EMAIL_ADDRESS
+    msg["To"] = RECEIVER_EMAIL
+    msg["Subject"] = "Gold market activity during scheduled event"
+
+    body = f"""
+A scheduled economic event occurred today.
+
+Gold trading volume is significantly higher than its recent average.
+
+Event: {event}
+Observed Volume: {int(volume)}
+
+This is an informational notice only and does not constitute financial advice.
+"""
+    msg.attach(MIMEText(body, "plain"))
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        server.send_message(msg)
+
+def main():
+    events_today = is_event_today()
+    if not events_today:
+        return
+
+    spike, volume = volume_spike()
+    if not spike:
+        return
+
+    for event in events_today:
+        if not already_alerted(event):
+            send_email(event, volume)
+            log_alert(event)
+
+if __name__ == "__main__":
+    main()
