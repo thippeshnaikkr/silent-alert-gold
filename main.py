@@ -30,7 +30,7 @@ def volume_spike():
         return False, None
 
     recent_avg = data["Volume"][-LOOKBACK_DAYS:].mean()
-    today_volume = data["Volume"].iloc[-1]
+    today_volume = float(data["Volume"].iloc[-1])
 
     if today_volume >= VOLUME_MULTIPLIER * recent_avg:
         return True, today_volume
@@ -92,5 +92,6 @@ if __name__ == "__main__":
         print("ERROR OCCURRED:")
         print(e)
         raise
+
 
 
