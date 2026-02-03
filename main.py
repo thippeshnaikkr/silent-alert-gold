@@ -24,71 +24,74 @@ RECEIVER_EMAIL = os.environ["RECEIVER_EMAIL"]
 
 # ------------------------------------------
 
+
 def is_event_today():
     today = datetime.date.today().isoformat()
     events = pd.read_csv("events.csv")
     today_events = events[events["date"] == today]
     return today_events["event"].tolist()
 
+
 def volume_spike(ticker):
     data = yf.download(ticker, period="2mo", progress=False)
-    if len(data) < LOOKBACK_DAYS:
+
+    if data.empty or len(data) < LOOKBACK_DAYS:
         return False, None
 
-    recent_avg = data["Volume"].tail(LOOKBACK_DAYS).mean().item()
-    today_volume = data["Volume"].iloc[-1].item()
+    recent_avg = data["Volume"].tail(LOOKBACK_DAYS).mean()
+    today_volume = data["Volume"].iloc[-1]
+
+    recent_avg = float(recent_avg)
+    today_volume = float(today_volume)
 
     if today_volume >= VOLUME_MULTIPLIER * recent_avg:
         return True, today_volume
 
     return False, today_volume
-    
-    if len(data) < LOOKBACK_DAYS:
-        return False, None
 
-    recent_avg = data["Volume"].tail(LOOKBACK_DAYS).mean().item()
-    today_volume = data["Volume"].iloc[-1].item()
 
-    if today_volume >= VOLUME_MULTIPLIER * recent_avg:
-        return True, today_volume
-    return False, today_volume
-
-def already_alerted(event):
+def already_alerted(key):
     try:
         with open("alert_log.txt", "r") as f:
-            return event in f.read()
-    except:
+            return key in f.read()
+    except FileNotFoundError:
         return False
 
-def log_alert(event):
-    with open("alert_log.txt", "a") as f:
-        f.write(event + "\n")
 
-def send_email(event, volume):
+def log_alert(key):
+    with open("alert_log.txt", "a") as f:
+        f.write(key + "\n")
+
+
+def send_email(event, asset, volume):
     msg = MIMEMultipart()
     msg["From"] = EMAIL_ADDRESS
     msg["To"] = RECEIVER_EMAIL
-    msg["Subject"] = "Gold market activity during scheduled event"
+    msg["Subject"] = f"{asset} market activity during scheduled event"
 
     body = f"""
 A scheduled economic event occurred today.
 
-Gold trading volume is significantly higher than its recent average.
-
+Asset: {asset}
 Event: {event}
+
+Trading volume is significantly higher than its recent average.
+
 Observed Volume: {int(volume)}
 
 This is an informational notice only and does not constitute financial advice.
 """
+
     msg.attach(MIMEText(body, "plain"))
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
         server.send_message(msg)
 
+
 def main():
-    def main():
     events_today = is_event_today()
+
     if not events_today:
         return
 
@@ -102,29 +105,9 @@ def main():
             alert_key = f"{event}-{asset_name}"
 
             if not already_alerted(alert_key):
-                send_email(f"{event} ({asset_name})", volume)
+                send_email(event, asset_name, volume)
                 log_alert(alert_key)
 
-    spike, volume = volume_spike()
-    if not spike:
-        return
-
-    for event in events_today:
-        if not already_alerted(event):
-            send_email(event, volume)
-            log_alert(event)
 
 if __name__ == "__main__":
-    try:
-        print("SCRIPT STARTED")
-        main()
-        print("SCRIPT FINISHED SUCCESSFULLY")
-    except Exception as e:
-        print("ERROR OCCURRED:")
-        print(e)
-        raise
-
-
-
-
-
+    main()
