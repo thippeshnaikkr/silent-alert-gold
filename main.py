@@ -84,4 +84,13 @@ def main():
             log_alert(event)
 
 if __name__ == "__main__":
-    main()
+    try:
+        print("SCRIPT STARTED")
+        main()
+        print("SCRIPT FINISHED SUCCESSFULLY")
+    except Exception as e:
+        print("ERROR OCCURRED:")
+        print(e)
+        raise
+
+
