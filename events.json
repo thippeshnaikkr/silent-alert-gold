@@ -1,0 +1,29 @@
+{
+  "events": [
+    {
+      "date": "2026-01-29",
+      "name": "US Fed Interest Rate Decision",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-02-13",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-03-06",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2028-04-15",
+      "name": "Bitcoin Halving",
+      "assets": ["Bitcoin"]
+    },
+    {
+      "date": "2026-06-10",
+      "name": "Ethereum Network Upgrade",
+      "assets": ["Ethereum"]
+    }
+  ]
+}
