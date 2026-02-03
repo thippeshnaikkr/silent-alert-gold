@@ -1,13 +1,131 @@
 {
   "events": [
+
+    /* ============================
+       FED INTEREST RATE DECISIONS (8 in 2026)
+       Source: Federal Reserve official 2026 calendar
+       Meetings normally conclude with a rate decision
+       ============================ */
     {
-      "date": "2026-01-29",
+      "date": "2026-01-28",
       "name": "US Fed Interest Rate Decision",
       "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
     },
     {
-      "date": "2026-02-13",
+      "date": "2026-03-18",
+      "name": "US Fed Interest Rate Decision",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-04-29",
+      "name": "US Fed Interest Rate Decision",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-06-17",
+      "name": "US Fed Interest Rate Decision",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-07-29",
+      "name": "US Fed Interest Rate Decision",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-09-16",
+      "name": "US Fed Interest Rate Decision",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-10-28",
+      "name": "US Fed Interest Rate Decision",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-12-09",
+      "name": "US Fed Interest Rate Decision",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+
+    /* ============================
+       US CPI INFLATION RELEASES (Official BLS schedule)
+       (Typically 2nd Tuesday–Wednesday each month)
+       Source: BLS CPI calendar
+       ============================ */
+    {
+      "date": "2026-01-13",
       "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-02-11",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-03-11",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-04-10",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-05-12",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-06-10",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-07-14",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-08-12",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-09-11",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-10-14",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-11-10",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-12-10",
+      "name": "US CPI Inflation Release",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+
+    /* ============================
+       US JOBS REPORT (Employment Situation – Official)
+       (Typically first Friday of month)
+       Source: BLS Employment Situation
+       ============================ */
+    {
+      "date": "2026-01-09",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-02-06",
+      "name": "US Jobs Report (NFP)",
       "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
     },
     {
@@ -16,7 +134,57 @@
       "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
     },
     {
-      "date": "2028-04-15",
+      "date": "2026-04-03",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-05-08",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-06-05",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-07-02",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-08-07",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-09-04",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-10-02",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-11-06",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+    {
+      "date": "2026-12-04",
+      "name": "US Jobs Report (NFP)",
+      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
+    },
+
+    /* ============================
+       CRYPTO-NATIVE STRUCTURAL EVENTS
+       Publicly known protocol dates
+       ============================ */
+    {
+      "date": "2028-04-20",
       "name": "Bitcoin Halving",
       "assets": ["Bitcoin"]
     },
@@ -25,5 +193,6 @@
       "name": "Ethereum Network Upgrade",
       "assets": ["Ethereum"]
     }
+
   ]
 }
