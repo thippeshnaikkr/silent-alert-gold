@@ -1,3 +1,4 @@
+import json
 import yfinance as yf
 import pandas as pd
 import datetime
@@ -27,10 +28,21 @@ RECEIVER_EMAIL = os.environ["RECEIVER_EMAIL"]
 
 def is_event_today():
     today = datetime.date.today().isoformat()
-    events = pd.read_csv("events.csv")
-    today_events = events[events["date"] == today]
-    return today_events["event"].tolist()
 
+    try:
+        with open("events.json", "r") as f:
+            events = json.load(f)
+    except Exception as e:
+        print("Could not read events.json. Exiting.")
+        return []
+
+    today_events = []
+    for item in events:
+        if item.get("date") == today:
+            today_events.append(item.get("event"))
+
+    return today_events
+    
 
 def volume_spike(ticker):
     data = yf.download(ticker, period="2mo", progress=False)
@@ -111,4 +123,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
