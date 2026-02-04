@@ -65,9 +65,9 @@ def log_alert(key):
 
 def send_email(event, asset, volume):
     msg = MIMEMultipart()
-    msg["From"] = EMAIL_ADDRESS
+    msg["From"] = f"Silent Alert System <{EMAIL_ADDRESS}>"
     msg["To"] = RECEIVER_EMAIL
-    msg["Subject"] = f"{asset} market activity during scheduled event"
+    msg["Subject"] = f"Silent Alert System — {asset} activity during scheduled event"
 
     body = f"""
 A scheduled economic event occurred today.
@@ -111,3 +111,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
