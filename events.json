@@ -1,198 +1,56 @@
-{
-  "events": [
+[
+  { "date": "2026-01-03", "event": "Bitcoin Genesis Anniversary" },
 
-    /* ============================
-       FED INTEREST RATE DECISIONS (8 in 2026)
-       Source: Federal Reserve official 2026 calendar
-       Meetings normally conclude with a rate decision
-       ============================ */
-    {
-      "date": "2026-01-28",
-      "name": "US Fed Interest Rate Decision",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-03-18",
-      "name": "US Fed Interest Rate Decision",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-04-29",
-      "name": "US Fed Interest Rate Decision",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-06-17",
-      "name": "US Fed Interest Rate Decision",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-07-29",
-      "name": "US Fed Interest Rate Decision",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-09-16",
-      "name": "US Fed Interest Rate Decision",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-10-28",
-      "name": "US Fed Interest Rate Decision",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-12-09",
-      "name": "US Fed Interest Rate Decision",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
+  { "date": "2026-01-09", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-01-13", "event": "US CPI Inflation Release" },
+  { "date": "2026-01-28", "event": "FOMC Interest Rate Decision" },
 
-    /* ============================
-       US CPI INFLATION RELEASES (Official BLS schedule)
-       (Typically 2nd Tuesday–Wednesday each month)
-       Source: BLS CPI calendar
-       ============================ */
-    {
-      "date": "2026-01-13",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-02-11",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-03-11",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-04-10",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-05-12",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-06-10",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-07-14",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-08-12",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-09-11",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-10-14",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-11-10",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-12-10",
-      "name": "US CPI Inflation Release",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
+  { "date": "2026-02-06", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-02-11", "event": "US CPI Inflation Release" },
 
-    /* ============================
-       US JOBS REPORT (Employment Situation – Official)
-       (Typically first Friday of month)
-       Source: BLS Employment Situation
-       ============================ */
-    {
-      "date": "2026-01-09",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-02-06",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-03-06",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-04-03",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-05-08",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-06-05",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-07-02",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-08-07",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-09-04",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-10-02",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-11-06",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
-    {
-      "date": "2026-12-04",
-      "name": "US Jobs Report (NFP)",
-      "assets": ["Gold", "Silver", "Bitcoin", "Ethereum"]
-    },
+  { "date": "2026-03-06", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-03-11", "event": "US CPI Inflation Release" },
+  { "date": "2026-03-18", "event": "FOMC Interest Rate Decision" },
+  { "date": "2026-03-20", "event": "Quarterly Crypto Derivatives Expiry (BTC & ETH)" },
 
-    /* ============================
-       CRYPTO-NATIVE STRUCTURAL EVENTS
-       Publicly known protocol dates
-       ============================ */
-    {
-      "date": "2028-04-20",
-      "name": "Bitcoin Halving",
-      "assets": ["Bitcoin"]
-    },
-    {
-      "date": "2026-06-10",
-      "name": "Ethereum Network Upgrade",
-      "assets": ["Ethereum"]
-    }
+  { "date": "2026-04-03", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-04-10", "event": "US CPI Inflation Release" },
+  { "date": "2026-04-15", "event": "US Crypto Tax Deadline" },
+  { "date": "2026-04-29", "event": "FOMC Interest Rate Decision" },
+  { "date": "2026-04-30", "event": "US GDP Advance Estimate" },
 
-  ]
-}
+  { "date": "2026-05-08", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-05-12", "event": "US CPI Inflation Release" },
+
+  { "date": "2026-06-05", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-06-10", "event": "US CPI Inflation Release" },
+  { "date": "2026-06-17", "event": "FOMC Interest Rate Decision" },
+  { "date": "2026-06-19", "event": "Quarterly Crypto Derivatives Expiry (BTC & ETH)" },
+
+  { "date": "2026-07-02", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-07-14", "event": "US CPI Inflation Release" },
+  { "date": "2026-07-29", "event": "FOMC Interest Rate Decision" },
+  { "date": "2026-07-30", "event": "Ethereum Genesis Anniversary" },
+  { "date": "2026-07-30", "event": "US GDP Advance Estimate" },
+
+  { "date": "2026-08-07", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-08-12", "event": "US CPI Inflation Release" },
+
+  { "date": "2026-09-04", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-09-11", "event": "US CPI Inflation Release" },
+  { "date": "2026-09-16", "event": "FOMC Interest Rate Decision" },
+  { "date": "2026-09-18", "event": "Quarterly Crypto Derivatives Expiry (BTC & ETH)" },
+
+  { "date": "2026-10-02", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-10-14", "event": "US CPI Inflation Release" },
+  { "date": "2026-10-28", "event": "FOMC Interest Rate Decision" },
+  { "date": "2026-10-29", "event": "US GDP Advance Estimate" },
+
+  { "date": "2026-11-06", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-11-10", "event": "US CPI Inflation Release" },
+
+  { "date": "2026-12-04", "event": "US Non-Farm Payrolls" },
+  { "date": "2026-12-09", "event": "FOMC Interest Rate Decision" },
+  { "date": "2026-12-10", "event": "US CPI Inflation Release" },
+  { "date": "2026-12-18", "event": "Quarterly Crypto Derivatives Expiry (BTC & ETH)" }
+]
